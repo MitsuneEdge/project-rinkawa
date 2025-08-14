@@ -51,11 +51,11 @@
 }
 
 /* 定义5张图片 */
-.hero-banner-slide:nth-child(1) { background-image: url('https://data-reserve.rinkawa-0v0.top/indexHeroBanner_1.png'); }
-.hero-banner-slide:nth-child(2) { background-image: url('https://data-reserve.rinkawa-0v0.top/indexHeroBanner_2.png'); }
-.hero-banner-slide:nth-child(3) { background-image: url('https://data-reserve.rinkawa-0v0.top/indexHeroBanner_3.png'); }
-.hero-banner-slide:nth-child(4) { background-image: url('/image/Reserve_Example_4.jpg'); }
-.hero-banner-slide:nth-child(5) { background-image: url('/image/Reserve_Example_5.jpg'); }
+.hero-banner-slide:nth-child(1) { background-image: url('/image/index/indexHero_1.jpg'); }
+.hero-banner-slide:nth-child(2) { background-image: url('/image/index/indexHero_2.jpg'); }
+.hero-banner-slide:nth-child(3) { background-image: url('/image/index/indexHero_3.jpg'); }
+.hero-banner-slide:nth-child(4) { background-image: url('/image/index/indexHero_4.jpg'); }
+.hero-banner-slide:nth-child(5) { background-image: url('/image/index/indexHero_5.jpg'); }
 
 /* 关键帧动画：水平滑动 */
 @keyframes slideShow {
