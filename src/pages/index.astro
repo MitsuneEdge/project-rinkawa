@@ -1,50 +1,262 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
+import Sidebar from '../components/indexSidebar.astro';
 import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import DivLine from '../components/DivLine.astro';
+import '../styles/index/indexCharacterIntroduction.css';
+import '../styles/index/indexHeroBanner.css';
+import '../styles/index/indexGameMechanics.css';
+import '../styles/index/indexOverlayWindow.css';
+import '../styles/index/indexGameScreenshot.css';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
+
+    <style>
+    </style>
+
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title={"时载录-永律之羽"} description={"你将踏入濒临崩溃的永律界，一个由旋律构成、却因负面情感而濒临毁灭的独特世界"} />
 	</head>
+
 	<body>
+	    {/* 导航栏 */}
 		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
+        <Sidebar />
+
+		{/* 网页头部的巨大海报和字体 */}
+
+		<div class="hero-banner">
+		    <div class="hero-banner-blur">
+		        <div class="hero-banner-slides">
+		            <div class="hero-banner-slide"></div>
+		            <div class="hero-banner-slide"></div>
+		            <div class="hero-banner-slide"></div>
+		            <div class="hero-banner-slide"></div>
+		            <div class="hero-banner-slide"></div>
+		        </div>
+            </div>
+		    <div class="hero-content">
+		        <div style="
+		            font-family: Silver;
+		            border-radius: 15px;
+		            width: max-content;
+		            font-size: 30px;
+		        ">
+		            <h1>时载录</h1>
+		        </div>
+                <div style="
+                    border-radius: 10px;
+                    width: max-content;
+                    font-size: 20px;
+                ">
+                    <p>基于《千年时载录》改编的2D游戏</p>
+                </div>
+
+                {/*某种skill issue引起的抽象按钮操作*/}
+                <div class="link-container">
+                    <a href="/blog" class="btn"
+                        style="
+                        font-size: 16px;
+                        white-space: nowrap;
+                        background-color: rgba(0,0,0,0.3);
+                        text-decoration: none;
+                        border-radius: 4px; /* 圆角 */
+                        box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+                        width: max-content;"
+                        onmouseover="this.style.transform='scale(1.15)'"
+                        onmouseout="this.style.transform='scale(1)'"
+                    >
+                        开发动态
+                    </a>
+                    <a href="/pre-order" class="btn"
+                        style="
+                        font-size: 16px;
+                        margin-left: 15px;
+                        white-space: nowrap;
+                        background-color: rgba(0,0,0,0.3);
+                        text-decoration: none;
+                        border-radius: 4px;
+                        box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+                        width: max-content;"
+                        onmouseover="this.style.transform='scale(1.15)'"
+                        onmouseout="this.style.transform='scale(1)'"
+                    >
+                        预约游戏
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <DivLine color="#00ff00" height="10px" class="DivLine-HeroToMain" spacing="0vh" />
+
+        <br>
+
+        {/*Project-Seinenaki 首页介绍正文部分*/}
+
+        {/* indexCharacterIntroduction.css */}
+        <div style="display: grid; grid-template-areas: 'character-container';">
+            <div class="character-container">
+                <video class="video-background" autoplay muted loop>
+                    <source src="/video/indexCharacterIntro.mp4" type="video/mp4">
+                    <!-- 后备内容（如果浏览器不支持视频） -->
+                    <p>您的浏览器不支持 HTML5 视频</p>
+                </video>
+                <div class="character-item">
+                    <div class="character-trigger-L" id="window-trigger-L"></div>
+                    <div class="character-EmptyBlock"></div>
+                    <div class="character-trigger-R" id="window-trigger-R"></div>
+                </div>
+            </div>
+
+            {/*要套一层拟态窗口的div，让窗口锁定这一层*/}
+            <div id="overlay-core">
+                {/* indexOverlayWindow.css */}
+                <div id="overlay-window-L">
+                    <div id="indexImage-L" style="flex: 5;"></div>
+                        <div id="overlay-content-ContainL" style="flex: 2; align-items: center; flex-direction: column;">
+                            <div id="overlay-content-L" style="align-items: center;"></div>
+                            <button id="overlay-content-BtnL"
+                                    style="
+                                    align-items: center;
+                                    font-size: 16px;
+                                    cursor: pointer;
+                                    background-color: #4CAF50;
+                                    color: white;
+                                    border: none;
+                                    border-radius: 5px;
+                                    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+                            ">切换动画</button>
+                        </div>
+                    </div>
+                    <div id="overlay-window-R">
+                        <div id="overlay-content-ContainR" style="flex: 2; align-items: center; flex-direction: column;">
+                            <div id="overlay-content-R" style="align-items: center;"></div>
+                            <button id="overlay-content-BtnR"
+                                    style="
+                                        align-items: center;
+                                        font-size: 16px;
+                                        cursor: pointer;
+                                        background-color: #4CAF50;
+                                        color: white;
+                                        border: none;
+                                        border-radius: 5px;
+                                        box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+                            ">切换动画</button>
+                        </div>
+                        <div id="indexImage-R" style="flex: 5;"></div>
+                    </div>
+                </div>
+        </div>
+
+        <DivLine color="#00ff00" height="10px" class="DivLine-ScreenShot" spacing="0vh" />
+        {/*网页主体*/}
+
+        <main>
+            {/* indexGameScreenshot.css */}
+            {/*插画鉴赏部分——多图片幻灯片轮换，鼠标移至区块上暂停轮换*/}
+            <div class="GameScreenshot-container">
+                <div style="background-color: transparent; text-align: center; width: 100%; margin-bottom: 20px;">
+                    <p style="font-size: 30px"><b>设定展示</b></p>
+                </div>
+                <div class="GameScreenshot-content">
+                    <div class="GameScreenshot-L"></div>
+                    <div class="GameScreenshot-R"></div>
+                </div>
+            </div>
+
+            <DivLine color="#00ff00" height="10px" class="DivLine-GameMechanics" />
+
+            {/* indexGameMechanics.css */}
+            {/*玩法展示部分——左模块为竖排多选项，右模块为对应概念图*/}
+            <div class="GameMechanics-container">
+                <div class="GameMechanics-title">
+                    <p style="text-align: center; font-size: 30px;"><b>玩法展示</b><p>
+                </div>
+                <div class="GameMechanics-image">
+                    <div class="GameMechanics-L">
+                            <div class="GameMechanics-L-module">模块 1</div>
+                            <div class="GameMechanics-L-module">模块 2</div>
+                            <div class="GameMechanics-L-module">模块 3</div>
+                            <div class="GameMechanics-L-module">模块 4</div>
+                            <div class="GameMechanics-L-module">模块 5</div>
+                        </div>
+                    <div class="GameMechanics-R" id="rightContent"></div>
+                </div>
+            </div>
+
+            <DivLine color="#00ff00" height="10px" class="DivLine-storyIntroduce" />
+
+
+            {/* 游戏介绍 */}
+            <div class="storyIntroduce" style="background-color: transparent;">
+                <p style="text-align: center; font-size: 35px;"><b>关于 《永律之羽》</b></p>
+                <p style="text-align: center; font-size: 22px;">这是一款以世界故事与角色表现为核心的叙事RPG游戏。</p>
+                <p style="text-align: center; font-size: 22px;">
+                    你将踏入濒临崩溃的永律界，一个由旋律构成、却因负面情感而濒临毁灭的独特世界。
+                </p>
+                <p style="text-align: left; font-size: 18px;">核心体验：</p>
+                <p style="text-align: left; text-indent: 2em; font-size: 18px;">
+                    - 探索旋律编织的绝境： 穿梭于归雨云谷的纯净雨幕、悲鸣回响之森的飘零枯叶，
+                    探索失率区废墟下埋葬的旧日文明，感受世界末日的凄美与震撼。
+                </p>
+                <p style="text-align: left; text-indent: 2em; font-size: 18px;">
+                    - 双主角交织的命运：
+                    扮演"羽"——掌管轮回与记忆却因300次轮回剥离而近乎“空白”的世界使；
+                    以及"枫"——被创世之书《时载录》派遣而来、身负冰冷使命的执笔者。
+                    体验她们从猜忌对立到被迫同行，最终在绝境中互相理解与救赎的深刻羁绊。
+                </p>
+                <p style="text-align: left; text-indent: 2em; font-size: 18px;">
+                    记忆的重量与抉择： 收集散落在世界各处的“记忆雨滴”，羽能借此恢复被遗忘的过去，
+                    获得力量与知识，但每一次触碰都伴随着被庞大负面记忆冲击、坠入深渊的风险。
+                    你的选择将决定她能否承受这300世的沉重，并影响故事的走向。
+                </p>
+                <p style="text-align: left; text-indent: 2em; font-size: 18px;">
+                    旋律驱动的战斗与解谜：
+                    独特的独奏与协奏机制，体验通过解析世界真相、针对不同的敌人调整旋律结构达到致命一击的新颖体验。
+                    开放式剧情探索，通过收集文明遗留的碎片拼凑世界走向终焉的真相，揭开大灾变的秘密，直面《时载录》跨界而来的危机。
+                </p>
+                <p style="text-align: left; text-indent: 2em; font-size: 18px;">
+                    面对世界的终焉： 揭开永律界战乱与崩溃的根源，探索《时载录》失控的真相与诞生于崩毁的邪恶意识。
+                    在世界的终末，见证羽与枫在各自残酷宿命下的最终抉择——是遵循冰冷的法则，还是燃烧一切谱写属于她们的绝唱。
+                </p>
+            </div>
+        </main>
+
+        <DivLine color="#00ff00" height="10px" class="DivLine-indexPreOrder"  />
+
+        {/*点击就送*/}
+        <div class="preorder-btn"
+			    style="
+			    display: flex;
+			    background-color: transparent;
+			    align-items: center;
+			    justify-content: center;
+			    margin-top: 75px;
+                margin-bottom: 150px;
+			">
+            <a href="/pre-order" class="btn"
+                style="
+			            padding: 10px;
+			            font-size: 36px;
+			            background-color: rgba(0,0,0,0.3);
+			            text-decoration: none;
+			            text-align: center;
+			            border-radius: 10px;
+			            box-shadow: 4px 4px 9px rgba(0,0,0,0.3);"
+                onmouseover="this.style.transform='scale(1.35)'"
+                onmouseout="this.style.transform='scale(1)'"
+            >
+                预约游戏
+            </a>
+        </div>
+
 		<Footer />
+		<script src="../script/index/indexOverlayWindow.js"></script>
+		<script src="../script/index/indexGameMechanicsImage.js"></script>
+        <script src="../script/index/indexOverlaySwitch.js"></script>
+        <script src="../script/index/indexGameScreenshot.js"></script>
 	</body>
 </html>

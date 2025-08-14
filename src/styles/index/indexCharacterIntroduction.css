@@ -1,0 +1,60 @@
+/* src/styles/index/indexCharacterIntroduction.css */
+
+/* 容器样式 */
+.character-container {
+    display: flex;           /* Flex 布局 */
+    width: 100%;           /* 固定宽度 */
+    margin: 0 auto;
+    position: relative;
+
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+
+    overflow: hidden;
+
+    grid-area: character-container;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  /* 类似 background-size: cover */
+    z-index: -1;       /* 将视频置于底层 */
+}
+
+.character-container::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* 16:9 比例 */
+    /* 或者用 JS 动态计算 */
+}
+
+/* 通用子元素样式 */
+.character-item {
+    display: flex;
+    height: 95%;           /* 统一高度 */
+    width: 100%;
+    margin: 20px;
+    z-index: 1;
+}
+
+/* 按比例分配宽度 */
+.character-trigger-L,
+.character-trigger-R {
+    flex: 3;                 /* 比例 3 */
+    height: 95%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.character-EmptyBlock {
+    flex: 5;                 /* 比例 5 */
+    height: 95%;
+    padding: 10px;
+    min-width: 0;
+}

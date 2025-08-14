@@ -1,0 +1,90 @@
+/* src/styles/index/indexHeroBanner.css */
+
+.hero-banner {
+    /* 基础布局 */
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    position: relative;
+    overflow: hidden; /* 防止动画溢出 */
+}
+
+.hero-banner-blur{
+    width: 100%;
+    height: 100%;
+    filter: blur(8px); /* 默认模糊 */
+    transition: filter 0.5s ease;
+    z-index: -1;
+}
+
+/* 悬停时取消模糊 */
+.hero-banner:hover .hero-banner-blur {
+  filter: blur(0);
+}
+
+/* 图片容器 */
+.hero-banner-slides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 500%; /* 5张图片的总宽度（100% * 5） */
+    height: 100%;
+    display: flex;
+    animation: slideShow 45s infinite; /* 45秒完成一轮 */
+    z-index: 5;
+}
+
+/* 单张图片样式 */
+.hero-banner-slide {
+    width: 20vw; /* 每张图片占容器20% */
+    min-width: 20%;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+/* 定义5张图片 */
+.hero-banner-slide:nth-child(1) { background-image: url('https://data-reserve.rinkawa-0v0.top/indexHeroBanner_1.png'); }
+.hero-banner-slide:nth-child(2) { background-image: url('https://data-reserve.rinkawa-0v0.top/indexHeroBanner_2.png'); }
+.hero-banner-slide:nth-child(3) { background-image: url('https://data-reserve.rinkawa-0v0.top/indexHeroBanner_3.png'); }
+.hero-banner-slide:nth-child(4) { background-image: url('/image/Reserve_Example_4.jpg'); }
+.hero-banner-slide:nth-child(5) { background-image: url('/image/Reserve_Example_5.jpg'); }
+
+/* 关键帧动画：水平滑动 */
+@keyframes slideShow {
+    0% { transform: translateX(0); }     /* 第1张 */
+    20% { transform: translateX(-20%); } /* 第2张 */
+    40% { transform: translateX(-40%); } /* 第3张 */
+    60% { transform: translateX(-60%); } /* 第4张 */
+    80% { transform: translateX(-80%); } /* 第5张 */
+    100% { transform: translateX(-80%); } /* 最后一帧保持 */
+}
+
+{/*巨大海报里包含的文字*/}
+.hero-content {
+    color: white;              /* 文字颜色 */
+    font-size: 26px;           /* 文字大小 */
+    position: absolute;
+    width: max-content;
+    left: 15%;
+    padding: 20px;
+    background-color: transparent; /* 透明背景衬底 */
+    border-radius: 10px;
+    z-index: 10;
+}
+
+{/*跳转键距离控制*/}
+.link-container {
+    display: flex;          /* 启用弹性布局 */
+    align-items: center;    /* 垂直居中 */
+    width: max-content;
+    flex-wrap: nowrap;
+    gap: 10px;             /* 最小间距（现代浏览器） */
+}
