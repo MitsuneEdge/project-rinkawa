@@ -1,6 +1,6 @@
 /* src/script/index/Jump2Target.js */
 
-document.querySelectorAll('.jump2page').forEach(div => {
+document.querySelectorAll('[data-trigger="jump2page"]').forEach(div => {
     div.addEventListener('click', function() {
         const targetClass = this.getAttribute('data-target');
         const targetElement = document.querySelector(`.${targetClass}`);
@@ -14,3 +14,6 @@ document.querySelectorAll('.jump2page').forEach(div => {
         }
     });
 });
+
+/* <button class="jump2page" data-target="storyIntroduce">关于游戏</button> */
+/* class=jump2page，data-target选择需要跳转到的元素 */
