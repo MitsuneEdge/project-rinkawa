@@ -1,7 +1,7 @@
 ---
 title: "美国人！哎呀"
 description: "做最优质的战士"
-pubDate: "Jul 22 2022"
+pubDate: "Jul 22 2142"
 heroImage: "/image/blog-placeholder-about.jpg"
 ---
 
